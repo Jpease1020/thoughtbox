@@ -3,9 +3,8 @@ class SessionsController < ApplicationController
   end
 
   def create
-    byebug
-    user = User.find_or_create_by(email_address: params[:session][:email_address])
-    if user && user.authenticate(params[:session][:password])
+    user = User.find_by(email_address: params[:user][:email_address])
+    if user && user.authenticate(params[:user][:password])
       session[:user_id] = user.id
       redirect_to dashboard_path
     else
