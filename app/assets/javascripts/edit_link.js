@@ -1,6 +1,5 @@
 function editLinks(){
   $('.links-index').delegate('.edit-link', 'blur', function(){
-    // debugger
     var linkObject = $(this).children('span')
     var $linkDataId = linkObject.attr('data-id')
     var $linkId = $(this).closest('.link').attr('data-id')
