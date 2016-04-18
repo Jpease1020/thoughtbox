@@ -10,7 +10,7 @@ function linkHtml(link){
               '</span>' + '</h3><br>' +
           '</div>' +
         '</div>' +
-        '<div class="">' +
+        '<div class="statement">' +
           '<h5>I have read this: </h5>' +
         '</div>' +
         '<div class="read-status">' +
