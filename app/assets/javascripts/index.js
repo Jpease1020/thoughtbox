@@ -6,6 +6,6 @@ function getLinks(){
 
 function displayLinks(links){
   links.forEach(function(link){
-    $('#link-index').append(linkHtml(link));
+    $('.links-index').append(linkHtml(link));
   });
 }
