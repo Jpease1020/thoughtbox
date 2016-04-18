@@ -6,47 +6,26 @@ RSpec.feature "guest visits home page" do
     click_on "Sign Up"
     expect(current_path).to eq("/users/new")
 
+    fill_in "Email", with: "email@email.com"
     fill_in "Password", with: "password"
     fill_in "Confirm password", with: "password"
     click_on "Create"
-
     expect(current_path).to eq(dashboard_path)
     expect(page).to have_content("logout")
   end
 
-	scenario "account creation fails without name" do
+	scenario "account creation fails without unique email" do
+    user = User.create(email_address: "a@email.com", password_digest: "password")
 		visit root_path
-    click_on "Create Account"
+    click_on "Sign Up"
     expect(current_path).to eq("/users/new")
 
-    fill_in "First Name", with: ""
-    fill_in "Last Name", with: ""
-    fill_in "Username", with: "jennyj"
-    fill_in "Password:", with: "password"
-    fill_in "Password Confirmation:", with: "password"
+    fill_in "Email", with: user.email_address
+    fill_in "Password", with: "password"
+    fill_in "Confirm password", with: "password"
     click_on "Create"
 
     expect(current_path).to eq(new_user_path)
-    # expect(page).to have_content("First name can't be blank")
-    # expect(page).to have_content("Last name can't be blank")
-  end
-
-	xscenario "account creation fails without unique username" do
-		value = "pete"
-		user = create(:user, username: value)
-		visit root_path
-    click_on "Create Account"
-    expect(current_path).to eq("/users/new")
-
-    fill_in "First Name", with: "john"
-    fill_in "Last Name", with: "doe"
-    fill_in "Username", with: value
-    fill_in "Password:", with: "password"
-    fill_in "Password Confirmation:", with: "password"
-    click_on "Create"
-
-    expect(current_path).to eq(new_user_path)
-    # expect(page).to have_content("#{value} is already taken. Please choose a different username")
   end
 
 end
