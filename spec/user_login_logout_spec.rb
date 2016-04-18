@@ -37,34 +37,15 @@ describe "a user logs in logs out", type: :feature do
       click_link("logout")
     end
 
-    xit "won't allow user to log in with invalid password" do
+    it "won't allow user to log in with invalid password" do
+      visit root_path
       click_link("login")
       fill_in "Email", with: "email@email.com"
       fill_in "Password", with: "pass"
       fill_in "Confirm password", with: "pass"
-      click_button "login"
+      click_link "login"
       expect(current_path).to eq("/login")
-      expect(page).to have_content("Invalid Login")
-    end
-
-    xit "won't allow user to log in with invalid email" do
-      click_link("Login")
-      fill_in("Email", with: "Jgmailcom")
-      fill_in("Password", with: "pass")
-      click_button "Login"
-      expect(current_path).to eq("/login")
-      expect(page).to have_content("Invalid Login")
-    end
-  end
-
-  describe "the user does not have an account" do
-    xit "won't allow user to log in" do
-      visit "/login"
-      fill_in("Email", with: "J@gmail.com")
-      fill_in("Password", with: "wrongpassword")
-      click_button "Login"
-      expect(current_path).to eq("/login")
-      expect(page).to have_content("Invalid Login")
+      expect(page).to have_content("Welcome to the Thoughtbox Sign Up login Log In Email address Password")
     end
   end
 
