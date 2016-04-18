@@ -1,9 +1,39 @@
 <div class="container">
-  <div class="row text-center">
-    <label><h3><b><em>Link Title: </em></b></h3></label>
-    <input type="text" id='new-link-title'>
-    <label><h3><b><em>Link URL: </em></b></h3></label>
-    <input type="text" id='new-link-url'>
-    <button id='submit-new-link' class='btn btn-primary'>Save Link</button>
+  <div class="container">
+    <%= form_for :link, url: links_path do |f| %>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+      <%= f.label :url %>
+      <%= f.text_field :url %>
+      <%= f.submit "Create Link", class: "btn btn-default" %>
+     <% end %>
   </div>
+</div>
+
+<div class="">
+  <% @links.each do |link| %>
+  <div class="container">
+    <div class="panel panel-default link" data-id= "link.id">
+      <div class="panel-heading">
+        <div class="container">
+          <div class="row">
+            <h3 class="panel-title edit-link">Title:
+              <span contenteditable="true" class="title" data-id="title">
+                <%= link.title %>
+              </span> </h3><br>
+            </div>
+          </div>
+        </div>
+        <div class="panel-url">
+          <div class="container">
+            <div class="row edit-link">
+              <span contenteditable="true" class="url" data-id="url">
+                <%= link.url %>
+              </span>
+            </div><br>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>

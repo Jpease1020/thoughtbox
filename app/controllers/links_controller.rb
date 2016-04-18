@@ -5,6 +5,7 @@ class LinksController < ApplicationController
   end
 
   def index
+    @links = Link.all
   end
 
   def create
@@ -14,7 +15,7 @@ class LinksController < ApplicationController
       redirect_to links_path
     else
       flash.now[:error] = "Invalid Link"
-      redirect_to new_link_path
+      redirect_to links_path
     end
   end
 

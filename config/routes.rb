@@ -8,5 +8,11 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'users#show'
 
   resources :users, only: [:new, :create, :edit, :update]
-  resources :links, only: [:index, :edit, :update]
+  resources :links, only: [:index, :create, :edit, :update]
+
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      resources :links, only: [:index, :create, :update, :destroy]
+    end
+  end
 end

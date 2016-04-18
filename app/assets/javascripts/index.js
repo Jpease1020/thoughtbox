@@ -1,12 +1,11 @@
 function getLinks(){
-  $.getJSON('/api/v1/ideas', function(response){
-      displayIdeas(response);
+  $.getJSON('/api/v1/links', function(response){
+      displayLinks(response);
   });
 }
 
-function displayIdeas(ideas){
-  ideas.forEach(function(idea){
-    idea.body = truncateIdeaBody(idea);
-    $('#idea-index').append(ideaHtml(idea));
+function displayLinks(links){
+  links.forEach(function(link){
+    $('#link-index').append(linkHtml(link));
   });
 }
