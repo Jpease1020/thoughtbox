@@ -24,13 +24,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def update
-    current_user.update(user_params)
-    current_user.save
-    flash[:notice] = "You have successfully updated your information!"
-    redirect_to dashboard_path
-  end
-
   private
 
   def user_params

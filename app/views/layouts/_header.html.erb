@@ -1,7 +1,12 @@
-<header><h1 class="text-center">Curious Tweets!</h1><div class="log btn btn-default">
+<header><h1 class="text-center"> Welcome to the Thoughtbox</h1>
   <% if current_user %>
   <%= link_to 'logout', logout_path %>
   <% else %>
-  <%= link_to "login", login_path %>
+  <div class="btn btn-default">
+    <%= button_to "sign up", login_path  %>
+  </div>
+  <div class="">
+    <%= link_to "login", login_path %>
+  </div>
   <% end %>
-</div></header>
+</header>
