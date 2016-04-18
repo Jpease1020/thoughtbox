@@ -15,7 +15,9 @@ class Api::V1::LinksController < Api::ApiController
       link.update_attributes(read: !link.read)
       render json: link
     else
-      link_params = {title: link_params[:title], url: link_params[:url]}
+      link = Link.find(params[:id])
+      # link_params = {title: params[:title], url: params[:url]}
+      # byebug
       link.update_attributes(link_params)
       render json: link
     end
