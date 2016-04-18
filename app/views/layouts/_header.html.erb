@@ -3,10 +3,10 @@
   <%= link_to 'logout', logout_path %>
   <% else %>
   <div class="btn btn-default">
-    <%= button_to "sign up", login_path  %>
+    <%= link_to "Sign Up", new_user_path  %>
   </div>
   <div class="">
-    <%= link_to "login", login_path %>
+    <%= button_to "login", login_path %>
   </div>
   <% end %>
 </header>

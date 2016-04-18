@@ -4,9 +4,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    if current_user
-      @user = current_user
-    else
+    if !current_user
       flash[:notice] = "Please login"
       redirect_to root_path
     end
@@ -15,7 +13,7 @@ class UsersController < ApplicationController
   def create
     user = User.new(user_params)
     if user.save
-      session[:user] = user.id
+      session[:user_id] = user.id
       flash[:notice] = 'user successfully created'
       redirect_to dashboard_path
     else
