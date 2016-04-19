@@ -1,12 +1,14 @@
 class Api::V1::LinksController < Api::ApiController
   respond_to :json
   def index
-
     respond_with current_user.links.all
   end
 
   def create
-    respond_with :api, :v1, Link.create(link_params)
+    link = Link.create(link_params)
+    link.user_id = current_user.id
+    link.save
+    respond_with :api, :v1, link
   end
 
   def update
