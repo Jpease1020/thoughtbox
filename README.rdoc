@@ -1,28 +1,11 @@
-== README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Thoughtbox is a one day assessment at the [Turing School of Software and Design](https://www.turing.io/)
+covering rails, and javascript.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
+[View the app live on heroku](https://thoughtbox-jp.herokuapp.com/links)
 * How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+  - run Rspec from the command line
 
 * Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+  - rails s will fire up a local server on localhost:3000
