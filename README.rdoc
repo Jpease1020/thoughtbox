@@ -2,7 +2,7 @@
 Thoughtbox is a one day assessment at the [Turing School of Software and Design](https://www.turing.io/)
 covering rails, and javascript.
 
-[View the app live on heroku](https://thoughtbox-jp.herokuapp.com/links)
+[View the app live on heroku](https://thoughtbox-jp.herokuapp.com)
 
 * How to run the test suite
 
