@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe "User adds a new link", type: :feature do
-  xscenario "link is created, and added to the database and is displayed on the page" do
+  scenario "link is created, and added to the database and is displayed on the page" do
     visit root_path
     click_link("login")
     fill_in("Email", with: "email@email.com")

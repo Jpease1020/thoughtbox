@@ -2,7 +2,7 @@ class Api::V1::LinksController < Api::ApiController
   respond_to :json
   def index
 
-    respond_with Link.all
+    respond_with current_user.links.all
   end
 
   def create
@@ -16,7 +16,7 @@ class Api::V1::LinksController < Api::ApiController
       render json: link
     else
       link = Link.find(params[:id])
-      link.update_attributes(link_params)
+      link.update(link_params)
       render json: link
     end
   end
